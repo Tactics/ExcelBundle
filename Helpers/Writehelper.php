@@ -68,9 +68,11 @@ class WriteHelper {
             $drawing->setDescription($options['description']);
         }
         if (isset($options['height'])) {
+            $drawing->setResizeProportional(false);
             $drawing->setHeight($options['height']);
         }
         if (isset($options['width'])){
+            $drawing->setResizeProportional(false);
             $drawing->setWidth($options['width']);
         }
 

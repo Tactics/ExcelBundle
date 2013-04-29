@@ -59,6 +59,10 @@ class WriteHelper {
      */
     public function writeImageToSheet($path, \PHPExcel_Worksheet $sheet, array $options = array())
     {
+        if(!file_exists($path)) {
+            return;
+        }
+
         $drawing = new \PHPExcel_Worksheet_Drawing();
 
         if (isset($options['name'])){

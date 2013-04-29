@@ -1,0 +1,19 @@
+{
+    "name": "tactics/excel-bundle",
+    "description": "ExcelBundle",
+    "keywords": ["excel", "bundle"],
+    "type": "symfony-bundle",
+    "license": "",
+    "authors": [{
+        "name": "Jeroen Meert",
+        "email": "jeroen@tactics.be"
+    }],
+    "require": {
+        "symfony/symfony": "2.1.*",
+    },
+    "autoload": {
+        "psr-0": { "Tactics\\Bundle\\ExcelBundle": "" }
+    },
+    "target-dir": "Tactics/Bundle/ExcelBundle",
+    "minimum-stability": "dev"
+}

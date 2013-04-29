@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <!--<parameters>-->
+    <!--</parameters>-->
+
+    <services>
+        <service id="tactics_excel_write_helper" class="Tactics\Bundle\ExcelBundle\Helpers\Writehelper">
+        </service>
+        <service id="tactics_excel_object_transformer_helper" class="Tactics\Bundle\ExcelBundle\Helpers\ObjectTransformerHelper">
+        </service>
+        <service id="tactics_excel_collection_helper" class="Tactics\Bundle\ExcelBundle\Helpers\CollectionHelper">
+            <argument type="service" id="tactics_excel_object_transformer_helper" />
+            <argument type="service" id="tactics_excel_write_helper" />
+        </service>
+        <service id="tactics_excel_download_helper" class="Tactics\Bundle\ExcelBundle\Helpers\DownloadHelper">
+        </service>
+        <service id="tactics_excel_filereader_helper" class="Tactics\Bundle\ExcelBundle\Helpers\FileReaderHelper">
+        </service>
+        <service id="tactics_excel_navigator_helper" class="Tactics\Bundle\ExcelBundle\Helpers\NavigatorHelper">
+        </service>
+        <service id="tactics_excel_styling_helper" class="Tactics\Bundle\ExcelBundle\Helpers\StylingHelper">
+        </service>
+        <service id="tactics.excel_writer" class="Tactics\Bundle\ExcelBundle\Writers\ReportExcelWriter">
+            <argument type="service" id="tactics_excel_collection_helper" />
+            <argument type="service" id="tactics_excel_filereader_helper" />
+            <argument type="service" id="tactics_excel_download_helper" />
+            <argument type="service" id="tactics_excel_navigator_helper" />
+            <argument type="service" id="tactics_excel_styling_helper" />
+            <argument type="service" id="tactics_excel_write_helper" />
+        </service>
+    </services>
+</container>

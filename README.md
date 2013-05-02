@@ -1,4 +1,4 @@
 ExcelBundle
 ===========
-<h1>Getting started</h1>
+header(Getting started, 1);
 

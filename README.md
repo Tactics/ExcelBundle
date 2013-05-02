@@ -1,4 +1,5 @@
 ExcelBundle
 ===========
-<h2><u>Getting started</u></h2>
+##H2 Getting started
 
+Add following line to composer.json 

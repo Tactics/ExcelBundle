@@ -53,18 +53,19 @@ You can extend the default ReportBuilder to add/overwrite (extra) functionality.
 class myFunkyBuilderClass extends Tactics\Bundle\ExcelBundle\Writer\ReportExcelWriter { ...
 ```
 Existing functionality 
-1. get/setActiveCell() (Active cell is coordinate of the cell where content will be written if write method is called)
-2. get/setFirstCell() (First cell is coordinate, pointer will be set to column value when nextRow method is called)
-3. nextCell($amount = 1) (sets active cell to current active cell + $amount * cells to the right)
-4. nextRow($amount = 1)
-5. write(\PHPExcel_Worksheet $sheet, $value) (writes value to a ExcelSheet)
-6. setStyleFromCell(\PHPExcel_Worksheet $sheet, $styledCell, $numberOfColumns = 1, $numberOfRows = 1, $merge = false) (copies style from a cell to a new range)
-7. offerAsXlsxDownload(Response $response, PHPExcel $excel, $filename)
-8. getExcelFromFileName($fileName, $kernel)
-9. nextSheet($sheetTitle, $startcell = 'A1')
-10. getDownloadFromCollection($collection, array $options = array('filename' => 'defaultFileName'))
-11. writeCollection(\PHPExcel_Worksheet $sheet, $collection, $options = array())
-        
+<ol>
+<li>get/setActiveCell() (Active cell is coordinate of the cell where content will be written if write method is called)</li>
+<li>get/setFirstCell() (First cell is coordinate, pointer will be set to column value when nextRow method is called)</li>
+<li>nextCell($amount = 1) (sets active cell to current active cell + $amount * cells to the right)</li>
+<li>nextRow($amount = 1)</li>
+<li>write(\PHPExcel_Worksheet $sheet, $value) (writes value to a ExcelSheet)</li>
+<li>setStyleFromCell(\PHPExcel_Worksheet $sheet, $styledCell, $numberOfColumns = 1, $numberOfRows = 1, $merge = false) (copies style from a cell to a new range)</li>
+<li>offerAsXlsxDownload(Response $response, PHPExcel $excel, $filename)</li>
+<li>getExcelFromFileName($fileName, $kernel)</li>
+<li>nextSheet($sheetTitle, $startcell = 'A1')</li>
+<li>getDownloadFromCollection($collection, array $options = array('filename' => 'defaultFileName'))</li>
+<li>writeCollection(\PHPExcel_Worksheet $sheet, $collection, $options = array())</li>
+</ol>        
 ##### Customize used helpers for optimal customization.
 The ReportExcelWriter depends on helpers to distribute functionality.
 Extending/overwriting these helpers allow you to change some behaviors as needed/wanted.
@@ -85,14 +86,17 @@ class myWriteHelper extends Tactics\Bundle\ExcelBundle\Helpers\WriteHelper {
 see todo why this isn't documented yet
 
 AvailableHelpers
-1. CollectionHelper
-2. DownloadHelper
-3. FileReaderHelper
-4. NavigatorHelper
-5. ObjectTransFormerHelper
-6. StylingHelper
-7. WriteHelper
-
+<ol>
+<li>CollectionHelper</li>
+<li>DownloadHelper</li>
+<li>FileReaderHelper</li>
+<li>NavigatorHelper</li>
+<li>ObjectTransFormerHelper</li>
+<li>StylingHelper</li>
+<li>WriteHelper</li>
+</ol>
 ## Todo's (aka coming soon ;) )
-1. define helper classes in configuration so we don't have to invoke the Reportbuilder constructor when overwriting a helper class.
-2. ...
+<ol>
+<li>define helper classes in configuration so we don't have to invoke the Reportbuilder constructor when overwriting a helper class.</li>
+<li>...</li>
+</ol>

@@ -3,12 +3,12 @@ ExcelBundle
 ##H2 Getting started
 ######H6 Install the bundle using composer
 Add following lines to composer.json 
-    ```
-     "type": "git",
-     "url": "git@github.com:Tactics/ExcelBundle"
+
+       "type": "git",
+       "url": "git@github.com:Tactics/ExcelBundle"
      
-     "tactics/excel-bundle": "1.0.*" 
-     ```
+       "tactics/excel-bundle": "1.0.*" 
+     
     
 ##H2 Features
 ######H6 Exporting entity collections.

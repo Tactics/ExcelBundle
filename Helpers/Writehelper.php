@@ -100,7 +100,7 @@ class WriteHelper {
      */
     protected function isWritableField($field)
     {
-        return (is_numeric($field) || $field === null || is_string($field) || method_exists($field, '__toString') || $field instanceof DateTime);
+        return (is_numeric($field) || $field === null || is_string($field) || method_exists($field, '__toString') || $field instanceof \DateTime);
     }
 
     public function setExcelWriter(ReportExcelWriter $excelWriter)

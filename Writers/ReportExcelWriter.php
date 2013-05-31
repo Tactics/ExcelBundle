@@ -182,19 +182,9 @@ class ReportExcelWriter
         $this->setFirstCell($begincellPeriod);
 
         // write the period filter cells
-        if($filterValues['date_failure_from']) {
-            $this->writeFormattedDateToCell($sheet, $this->getActiveCell(), $filterValues['date_failure_from']);
-        }
-        else {
-            $this->write($sheet, self::EMPTY_FILTER_CELL_VALUE);
-        }
+        $this->write($sheet, $filterValues['date_failure_from'] ? : self::EMPTY_FILTER_CELL_VALUE);
         $this->nextRow();
-        if($filterValues['date_failure_to']) {
-            $this->writeFormattedDateToCell($sheet, $this->getActiveCell(), $filterValues['date_failure_to']);
-        }
-        else {
-            $this->write($sheet, self::EMPTY_FILTER_CELL_VALUE);
-        }
+        $this->write($sheet, $filterValues['date_failure_to'] ? : self::EMPTY_FILTER_CELL_VALUE) ;
     }
 
     public function nextSheet($sheetTitle, $startcell = 'A1')

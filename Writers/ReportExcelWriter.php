@@ -243,7 +243,7 @@ class ReportExcelWriter
      * @param $collection
      * @param array $options
      */
-    protected function writeCollection(\PHPExcel_Worksheet $sheet, $collection, $options = array())
+    public function writeCollection(\PHPExcel_Worksheet $sheet, $collection, $options = array())
     {
         $this->collectionHelper->writeCollection($sheet, $collection, $options);
     }

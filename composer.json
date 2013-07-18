@@ -9,7 +9,7 @@
         "email": "jeroen@tactics.be"
     }],
     "require": {
-        "symfony/symfony": "2.1.*"
+        "symfony/symfony": "2.3.*"
     },
     "autoload": {
         "psr-0": { "Tactics\\Bundle\\ExcelBundle": "" }

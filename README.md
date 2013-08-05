@@ -98,5 +98,7 @@ AvailableHelpers
 ## Todo's (aka coming soon ;) )
 <ol>
 <li>define helper classes in configuration so we don't have to invoke the Reportbuilder constructor when overwriting a helper class.</li>
-<li>...</li>
+<li>Bundle should be able to export queries (top priority)</li>
+<li>export to simple csv's</li>
+<li>Maybe be able to read excels/csv's?</li>
 </ol>

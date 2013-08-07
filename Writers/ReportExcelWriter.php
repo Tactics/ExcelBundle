@@ -236,6 +236,16 @@ class ReportExcelWriter
         $this->downloader->offerAsXlsxDownload(new Response(), $excel, $options['filename']);
     }
 
+    public function getDownloadFromCrossRefArray($collection, array $options = array('filename' => 'defaultFileName'))
+    {
+        $excel = new PHPExcel();
+        $excel->setActiveSheetIndex();
+        $sheet = $excel->getActiveSheet();
+
+        $this->collectionHelper->writeRefTableFromCollection($sheet, $collection, $options);
+        $this->downloader->offerAsXlsxDownload(new Response(), $excel, $options['filename']);
+    }
+
     /**
      * Writes a collection to the sheet.
      *

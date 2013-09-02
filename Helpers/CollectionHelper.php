@@ -147,4 +147,83 @@ class CollectionHelper {
         $this->excelWriter = $writer;
     }
 
+    /**
+     * Writes a ref table from an array, the array must be build in the following way
+     * - column headers must be the indexes of the collection
+     * - every of this indexes references an array with the row data
+     * - indexes of row data are used as row titles
+     *
+     * @param \PHPExcel_Worksheet $sheet
+     * @param $collection
+     * @param $options
+     */
+    public function writeRefTableFromCollection(\PHPExcel_Worksheet $sheet, $collection, $options)
+    {
+        $this->excelWriter->setFirstCell('A1');
+        $this->excelWriter->setActiveCell('A1');
+
+        $this->writeRefTableColumnHeaders($sheet, $collection);
+        $this->writeRefTableRowHeaders($sheet, $collection);
+
+        $this->excelWriter->setFirstCell('B2');
+        $this->excelWriter->setActiveCell('B2');
+        $this->writeRefValues($sheet, $collection);
+    }
+
+    /**
+     * Writes the column headers of a ref table based on a collection
+     *
+     * @param \PHPExcel_Worksheet $sheet
+     * @param $collection
+     */
+    private function writeRefTableColumnHeaders(\PHPExcel_Worksheet $sheet, $collection)
+    {
+        $this->excelWriter->nextCell();
+
+        foreach($collection as $title => $subArray) {
+            $this->excelWriter->write($sheet, $title);
+        }
+    }
+
+    /**
+     * Writes the row headers of a ref table based on a collection
+     *
+     * @param \PHPExcel_Worksheet $sheet
+     * @param $collection
+     */
+    private function writeRefTableRowHeaders(\PHPExcel_Worksheet $sheet, $collection)
+    {
+        $this->excelWriter->setActiveCell('A1');
+        $this->excelWriter->nextRow();
+
+        foreach($collection as $dataArray) {
+            foreach($dataArray as $title => $data) {
+                $this->excelWriter->write($sheet, $title);
+                $this->excelWriter->nextRow();
+            }
+
+            break;
+        }
+    }
+
+    /**
+     * Writes the values in a reference table
+     *
+     * @param \PHPExcel_Worksheet $
+     * @param $collection
+     */
+    private function writeRefValues(\PHPExcel_Worksheet $sheet, $collection)
+    {
+        foreach($collection as $subCollection) {
+            foreach($subCollection as $value) {
+                $this->excelWriter->write($sheet, $value);
+                $this->excelWriter->nextRow();
+            }
+
+            //Position the cursor to begin writing a new column of data
+            $this->excelWriter->setActiveCell($this->excelWriter->getFirstCell());
+            $this->excelWriter->nextCell();
+            $this->excelWriter->setFirstCell($this->excelWriter->getActiveCell());
+        }
+    }
 }

@@ -226,23 +226,23 @@ class ReportExcelWriter
      * @param $collection
      * @param array $options
      */
-    public function getDownloadFromCollection($collection, array $options = array('filename' => 'defaultFileName'))
+    public function getDownloadFromCollection($collection, array $options)
     {
         $excel = new PHPExcel();
         $excel->setActiveSheetIndex();
         $sheet = $excel->getActiveSheet();
 
-        $this->collectionHelper->writeCollection($sheet, $collection, $options);
+        $this->collectionHelper->writeCollection($sheet, $collection, $this->mergeDefaultOptions($options));
         $this->downloader->offerAsXlsxDownload(new Response(), $excel, $options['filename']);
     }
 
-    public function getDownloadFromCrossRefArray($collection, array $options = array('filename' => 'defaultFileName'))
+    public function getDownloadFromCrossRefArray($collection, array $options)
     {
         $excel = new PHPExcel();
         $excel->setActiveSheetIndex();
         $sheet = $excel->getActiveSheet();
 
-        $this->collectionHelper->writeRefTableFromCollection($sheet, $collection, $options);
+        $this->collectionHelper->writeRefTableFromCollection($sheet, $collection, $this->mergeDefaultOptions($options));
         $this->downloader->offerAsXlsxDownload(new Response(), $excel, $options['filename']);
     }
 
@@ -256,5 +256,17 @@ class ReportExcelWriter
     public function writeCollection(\PHPExcel_Worksheet $sheet, $collection, $options = array())
     {
         $this->collectionHelper->writeCollection($sheet, $collection, $options);
+    }
+
+    private function mergeDefaultOptions($options = array())
+    {
+        return array_merge($this->getDefaultOptions(), $options);
+    }
+
+    private function getDefaultOptions()
+    {
+        return array(
+            'filnename' => 'defaultFileName'
+        );
     }
 }

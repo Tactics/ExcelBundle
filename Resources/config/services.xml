@@ -8,7 +8,7 @@
     <!--</parameters>-->
 
     <services>
-        <service id="tactics_excel_write_helper" class="Tactics\Bundle\ExcelBundle\Helpers\Writehelper">
+        <service id="tactics_excel_write_helper" class="Tactics\Bundle\ExcelBundle\Helpers\WriteHelper">
         </service>
         <service id="tactics_excel_object_transformer_helper" class="Tactics\Bundle\ExcelBundle\Helpers\ObjectTransformerHelper">
         </service>

@@ -167,14 +167,15 @@ class ReportExcelWriter
         $this->setFirstCell($begincellGeneral);
         $this->setActiveCell($begincellGeneral);
 
+
         //Write general filter info
-        $this->write($sheet, $filterValues['type'] ? : self::EMPTY_FILTER_CELL_VALUE);
+        $this->write($sheet, $this->getFilterValue($filterValues, 'type'));
         $this->nextRow();
-        $this->write($sheet, $filterValues['department'] ? : self::EMPTY_FILTER_CELL_VALUE);
+        $this->write($sheet, $this->getFilterValue($filterValues, 'department'));
         $this->nextRow();
-        $this->write($sheet, $filterValues['equipment_type'] ? : self::EMPTY_FILTER_CELL_VALUE);
+        $this->write($sheet, $this->getFilterValue($filterValues, 'equipment_type'));
         $this->nextRow();
-        $this->write($sheet, $filterValues['area'] ? : self::EMPTY_FILTER_CELL_VALUE);
+        $this->write($sheet, $this->getFilterValue($filterValues, 'area'));
         $this->nextRow();
 
         //set pointer to begin of period information of filter
@@ -182,19 +183,17 @@ class ReportExcelWriter
         $this->setFirstCell($begincellPeriod);
 
         // write the period filter cells
-        if($filterValues['date_failure_from']) {
-            $this->write($sheet, $filterValues['date_failure_from']);
-        }
-        else {
-            $this->write($sheet, self::EMPTY_FILTER_CELL_VALUE);
-        }
+        $this->write($sheet, $this->getFilterValue($filterValues, 'date_failure_from'));
         $this->nextRow();
-        if($filterValues['date_failure_to']) {
-            $this->write($sheet, $filterValues['date_failure_to']);
+        $this->write($sheet, $this->getFilterValue($filterValues, 'date_failure_to'));
+    }
+
+    private function getFilterValue($filterValues, $index) {
+        if(!isset($filterValues[$index])) {
+            return self::EMPTY_FILTER_CELL_VALUE;
         }
-        else {
-            $this->write($sheet, self::EMPTY_FILTER_CELL_VALUE);
-        }
+
+        return $filterValues[$index] ? : self::EMPTY_FILTER_CELL_VALUE;
     }
 
     public function nextSheet($sheetTitle, $startcell = 'A1')

@@ -41,6 +41,9 @@ class WriteHelper {
             if ($value instanceof \DateTime) {
                 $this->writeFormattedDateToCell($sheet, $this->excelWriter->getActiveCell(), $value);
             }
+            elseif(is_int($value) || is_float($value)) {
+                $sheet->setCellValueExplicit($this->excelWriter->getActiveCell(),$value, \PHPExcel_Cell_DataType::TYPE_NUMERIC);
+            }
             elseif($value === null) {
             }
             else {

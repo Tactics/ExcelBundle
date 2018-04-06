@@ -9,7 +9,7 @@
         "email": "jeroen@tactics.be"
     }],
     "require": {
-        "symfony/symfony": "~3.0",
+        "symfony/symfony": "~4.0",
         "phpoffice/phpexcel": "1.8.*"
     },
     "autoload": {

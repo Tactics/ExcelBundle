@@ -18,5 +18,5 @@
         "psr-0": { "Tactics\\Bundle\\ExcelBundle": "" }
     },
     "target-dir": "Tactics/Bundle/ExcelBundle",
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }

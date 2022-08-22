@@ -1,16 +1,7 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: Jeroen
- * Date: 26/04/13
- * Time: 14:46
- * To change this template use File | Settings | File Templates.
- */
-
 namespace Tactics\Bundle\ExcelBundle\Helpers;
 
-
-use Tactics\Bundle\ExcelBundle\Writers\ReportExcelWriter;
+use Tactics\Bundle\ExcelBundle\Writers\BaseReportExcelWriter;
 
 class WriteHelper {
     protected $excelWriter;
@@ -103,7 +94,7 @@ class WriteHelper {
         return (is_numeric($field) || $field === null || is_string($field) || method_exists($field, '__toString') || $field instanceof \DateTime);
     }
 
-    public function setExcelWriter(ReportExcelWriter $excelWriter)
+    public function setExcelWriter(BaseReportExcelWriter $excelWriter)
     {
         $this->excelWriter = $excelWriter;
     }

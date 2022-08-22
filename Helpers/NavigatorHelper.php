@@ -8,7 +8,7 @@
  */
 
 namespace Tactics\Bundle\ExcelBundle\Helpers;
-use Tactics\Bundle\ExcelBundle\Writers\ReportExcelWriter;
+use Tactics\Bundle\ExcelBundle\Writers\BaseReportExcelWriter;
 
 class NavigatorHelper {
     protected $excelWriter;
@@ -60,7 +60,7 @@ class NavigatorHelper {
 
     }
 
-    public function setExcelWriter(ReportExcelWriter $excelWriter)
+    public function setExcelWriter(BaseReportExcelWriter $excelWriter)
     {
         $this->excelWriter = $excelWriter;
     }

@@ -9,7 +9,7 @@
 
 namespace Tactics\Bundle\ExcelBundle\Helpers;
 
-use Tactics\Bundle\ExcelBundle\Writers\ReportExcelWriter;
+use Tactics\Bundle\ExcelBundle\Writers\BaseReportExcelWriter;
 
 class StylingHelper {
 
@@ -49,7 +49,7 @@ class StylingHelper {
         $sheet->duplicateStyle($sheet->getStyle($styledCell),$range);
     }
 
-    public function setExcelWriter(ReportExcelWriter $excelWriter)
+    public function setExcelWriter(BaseReportExcelWriter $excelWriter)
     {
         $this->excelWriter = $excelWriter;
     }

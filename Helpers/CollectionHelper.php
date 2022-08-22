@@ -4,7 +4,7 @@ namespace Tactics\Bundle\ExcelBundle\Helpers;
 
 use Tactics\Bundle\ExcelBundle\Helpers\ObjectTransformerHelper;
 use Tactics\Bundle\ExcelBundle\Helpers\WriteHelper;
-use Tactics\Bundle\ExcelBundle\Writers\ReportExcelWriter;
+use Tactics\Bundle\ExcelBundle\Writers\BaseReportExcelWriter;
 
 class CollectionHelper {
 
@@ -142,7 +142,7 @@ class CollectionHelper {
         $this->excelWriter->nextRow();
     }
 
-    public function setExcelWriter(ReportExcelWriter $writer)
+    public function setExcelWriter(BaseReportExcelWriter $writer)
     {
         $this->excelWriter = $writer;
     }

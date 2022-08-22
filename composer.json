@@ -9,9 +9,6 @@
         "email": "jeroen@tactics.be"
     }],
     "require": {
-        "symfony/config": "^4.0",
-        "symfony/http-kernel": "^4.0",
-        "symfony/dependency-injection": "^4.0",
         "phpoffice/phpexcel": "1.8.*"
     },
     "autoload": {
